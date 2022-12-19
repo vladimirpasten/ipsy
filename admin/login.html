@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Layout - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Ingreso Administrador</h3>
+                            <p class="text-subtitle text-muted">Ingrese su correo y su clave</p>
+                        </div>
+                        <!--div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Layout</li>
+                                </ol>
+                            </nav>
+                        </div-->
+                    </div>
+                </div>
+
+                <!-- Basic Horizontal form layout section start -->
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Acceso</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+              <form class="rd-mailform block-md-big" data-form-output="form-output-global" data-form-type="contact" method="post" onsubmit="return submitUserForm();" id="ingreso" name="ingreso">
+                                            <div class="form-body">
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <label>Email</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="mail" class="form-control"
+                                                            name="mail" placeholder="Email">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Password</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="Password" id="clave" class="form-control"
+                                                            name="clave" placeholder="Password">
+                                                    </div>
+                                                    <!--div class="col-12 col-md-8 offset-md-4 form-group">
+                                                        <div class='form-check'>
+                                                            <div class="checkbox">
+                                                                <input type="checkbox" id="checkbox1"
+                                                                    class='form-check-input' checked>
+                                                                <label for="checkbox1">Remember Me</label>
+                                                            </div>
+                                                        </div>
+                                                    </div-->
+
+                                                  <div class="col-md-12 form-group">
+                                                    <center>
+                                                      <div class="g-recaptcha" data-sitekey="6Lf5rv4fAAAAAKTn_LU9vBSyejZW-9ZFPkBlfQMa" data-callback="verifyCaptcha"></div>
+                                                      <div id="g-recaptcha-error"></div>
+                                                  </center>
+                                                  </div>
+
+
+                                                    <div class="col-sm-12 d-flex justify-content-end">
+                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Ingresar</button>
+                                                        <button type="reset"
+                                                            class="btn btn-light-secondary me-1 mb-1">Borrar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- // Basic Horizontal form layout section end -->
+
+
+                <form id="form2" method="post" action="php/auten.php">
+                    <input type="hidden" id="mail2" class="form-control"
+                        name="mail">
+                    <input type="hidden" id="clave2" class="form-control"
+                        name="clave" >
+
+
+                </form>
+
+
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; @EcoLiderazgo</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="../js/core.min.js"></script>
+    <script src="../js/script.js"></script>
+
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+
+    <script language="javascript" >
+
+
+    function enviar_datos(){
+        var mail = $("#mail").val();
+        var clave = $("#clave").val();
+
+
+        if (mail == "" || clave == ""){
+            alert("Por favor, ingrese toda la información solicitada.");
+            return;
+        }
+
+
+        $("#mail2").val(mail);
+        $("#clave2").val(clave);
+
+        $("#form2").submit();
+
+    }
+
+
+
+function submitUserForm() {
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+      document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Seleccione este campo.</span>';
+      return false;
+    }
+    enviar_datos();
+    return false;
+}
+
+
+function verifyCaptcha() {
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+    
+
+    </script>
+</body>
+
+</html>
